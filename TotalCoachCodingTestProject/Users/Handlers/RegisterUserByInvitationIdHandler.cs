@@ -34,6 +34,8 @@ namespace TotalCoachCodingTestProject.Users.Handlers
 
             if (invitation == null) throw new ArgumentException($"No invitation found.");
 
+            if(invitation.UserEmail != request.UserEmail) throw new ArgumentException("Uesr not authorized to use the invitation.");
+            
             User newUser = new User()
             {
                 UserId = Guid.NewGuid().ToString(),

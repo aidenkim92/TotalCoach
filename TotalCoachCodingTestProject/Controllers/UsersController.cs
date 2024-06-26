@@ -17,9 +17,9 @@ namespace TotalCoachCodingTestProject.Controllers
         }
 
         [HttpPost]
-        public async Task<User> RegisterUserByInvitationIdAsync(string invitationId)
+        public async Task<User> RegisterUserByInvitationIdAsync(string invitationId, string userEmail)
         {
-            var registeredUser = await mediator.Send(new RegisterUserByInvitationIdCommand(invitationId));
+            var registeredUser = await mediator.Send(new RegisterUserByInvitationIdCommand(invitationId,userEmail));
 
             return registeredUser;
         }
