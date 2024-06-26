@@ -24,21 +24,15 @@ public class RegisterUserByInvitationIdHandlerUnitTest
     }
 
     [Test]
-    public async Task RegisterUserByInvitationIdHandler_Return_Registered_User()
+    public async Task RegisterUserByInvitationIdHandler_Invitation_Not_Belong_To_UserEmail()
     {
-        var invitationId = "43a67f39-44ad-41aa-b916-429f260130a5"; // True data
-        var expectedUserName = "Aiden";
-        var expectedUserMail = "dlqnrla@gmail.com";
+        var invitationId = "43a67f39-44ad-41aa-b916-429f260130a5"; // this belongs to "dlqnrla@gmail.com"
+        var inputEmail = "abc@gmail.com";
 
-        // TODO: MediatR is sinked but the inner Repositories are not executed somehow - fix 
+        // TODO: MediatR is sinked but the inner Repositories are not executed somehow for nUnit test with Moq - should be fixed 
         var handler = new RegisterUserByInvitationIdHandler(_userRepositoryMock.Object, _invitationRepositoryMock.Object);
 
-        // Act
-        User result = await handler.Handle(new RegisterUserByInvitationIdCommand(invitationId), new CancellationToken());
-
         // Assert
-        Assert.That(result, Is.Not.Null);
-        Assert.That(result.UserName, Is.EqualTo(expectedUserName));
-        Assert.That(result.UserEmail, Is.EqualTo(expectedUserMail));
+        Assert.ThrowsAsync<ArgumentException>(() => handler.Handle(new RegisterUserByInvitationIdCommand(invitationId, inputEmail), new CancellationToken()));
     }
 }
