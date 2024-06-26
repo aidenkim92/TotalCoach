@@ -15,7 +15,8 @@ Assumptions:
 6. The Invitation Repository has been implemented to demonstrate the ability to verify invitations, ensuring that a user can only accept an invitation that belongs to them.
 7. LINQ was used to conditionally retrieve server data.
 8. Visual Studio Code was used as the IDE.
-9. Used Moq and nUnit testing for testing the Handler implementation.
+9. Swagger UI was used for the middleware.
+10. Used Moq and nUnit testing for testing the Handler implementation.
 
 Instructions for running project locally (based in Terminal)
 1. Add downloaded "appsettings.json" file under the "/TotalCoachCodingTestProject" directory, e.g., "/TotalCoachCodingTestProject/appsettings.json".
