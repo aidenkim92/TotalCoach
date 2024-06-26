@@ -9,6 +9,7 @@ namespace TotalCoachCodingTestProject.Models
         public string UserId { get; set; }
         public string UserEmail { get; set; }
         public string UserName { get; set; }
+        public string OrganizationId { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; }
         public bool Deleted { get; set; }

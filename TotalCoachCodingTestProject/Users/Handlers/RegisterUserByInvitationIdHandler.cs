@@ -41,6 +41,7 @@ namespace TotalCoachCodingTestProject.Users.Handlers
                 UserId = Guid.NewGuid().ToString(),
                 UserEmail = invitation.UserEmail,
                 UserName = invitation.UserName,
+                OrganizationId = invitation.OrganizationId,
                 CreatedBy = invitation.CreatedBy,
                 CreatedOn = DateTime.UtcNow,
                 Deleted = false
